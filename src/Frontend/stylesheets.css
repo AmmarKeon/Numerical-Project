@@ -1,0 +1,197 @@
+/*.buttonInside {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-border-color: transparent;*/
+/*    -fx-background-radius: 5;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+
+/*!* begin*/
+/*all the edges of the buttons grid*!*/
+
+
+/*.buttonBorderTopRight {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-background-radius: 5;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-radius: 0 20 0 0;*/
+/*    -fx-border-width: 5 5 0 0;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+/*.buttonBorderBottomRight {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-background-radius: 5;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-radius: 0 0 20 0;*/
+/*    -fx-border-width: 0 5 5 0;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+/*.buttonBorderTopLeft {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-background-radius: 5;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-radius: 20 0 0 0;*/
+/*    -fx-border-width: 5 0 0 5;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+/*.buttonBorderBottomLeft {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-background-radius: 5;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-radius: 0 0 0 20;*/
+/*    -fx-border-width: 0 0 5 5;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+/*!* end*/
+/*all the edges of the buttons grid*!*/
+
+
+/*!* begin*/
+/*all the straight edges of the grid*!*/
+/*.buttonBorderAllTop {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-width: 5 0 0 0;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+
+/*.buttonBorderAllLeft {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-width: 0 0 0 5;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+
+/*.buttonBorderAllRight {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-width: 0 5 0 0;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+/*.buttonBorderAllTop {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-width: 5 0 0 0;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+
+/*.buttonBorderAllBottom {*/
+/*    -fx-background-color: #03336f;*/
+/*    -fx-border-color: #f07c41;*/
+/*    -fx-border-width: 0 0 5 0;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-alignment: center;*/
+/*    -fx-text-alignment: center;*/
+/*    !*-fx-effect: dropshadow(gaussian, rgba(0, 0, 0, .75), 20, 0.19, 0, 6);*!*/
+
+/*}*/
+/*!* end*/
+/*all the straight edges of the grid*!*/
+
+
+/*.buttonBorderAllBottom:pressed, .buttonBorderAllLeft:pressed,*/
+/*.buttonBorderAllRight:pressed, .buttonBorderAllTop:pressed, .buttonBorderBottomLeft:pressed,*/
+/*.buttonBorderBottomRight:pressed, .buttonBorderTopRight:pressed, .buttonBorderTopLeft:pressed,*/
+/*.buttonInside:pressed*/
+/*{*/
+/*    -fx-border-insets: 0;*/
+/*    -fx-font-size: 15;*/
+/*}*/
+
+
+
+.fullPane { /*  #1f647d */
+    -fx-background-color: #0b3c49;
+}
+
+/*this is for testing a new design for buttons in the UI*/
+
+.number_button {
+    -fx-background-color: darkgray;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.3, 0, 0);
+
+
+}
+
+.mainLabel {
+    -fx-border-color: #000915;
+    -fx-border-width: 6;
+    -fx-border-radius: 50;
+    -fx-background-color:  #e4d6a7;
+    -fx-background-radius: 55;
+    -fx-wrap-text: true;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.3, 0, 0);
+
+}
+
+.otherButtons {
+    -fx-text-fill: #FF57E0;
+    -fx-background-color: #731963;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.3, 0, 0);
+}
+
+.exitButtons {
+    -fx-text-fill: #FF6C52;
+    -fx-background-color: #9b2915;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.3, 0, 0);
+}
+
+.exitButtons:pressed,
+.number_button:pressed,
+.otherButtons:pressed {
+    -fx-background-insets: 1 5 1 5;
+}
+
+.optionsPane { /*  #1f647d */
+    -fx-background-color: #0b3c49;
+    /*set transparent later*/
+}
+
+.optionButtons {
+    -fx-text-fill: black;
+    -fx-background-color:  #e4d6a7;
+    -fx-background-radius: 20;
+    -fx-background-insets: 8 2 8 2;
+    -fx-effect: dropshadow(gaussian, black, 10, 0.3, 0, 0);
+    -fx-font-size: 20;
+}
+
+
