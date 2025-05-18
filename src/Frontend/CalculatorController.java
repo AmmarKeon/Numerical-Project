@@ -1,11 +1,15 @@
 package Frontend;
 
+import Backend.*;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
@@ -16,42 +20,119 @@ import java.util.ResourceBundle;
 public class CalculatorController implements Initializable {
     double colourscaling = 0;
 
-   @FXML Button button1;
-   @FXML Button button2;
-   @FXML Button button3;
-   @FXML Button button4;
-   @FXML Button button5;
-   @FXML Button button6;
-   @FXML Button button7;
-   @FXML Button button8;
-   @FXML Button button9;
-   @FXML Button button0;
-   @FXML Button buttonPlus;
-   @FXML Button buttonMinus;
-   @FXML Button buttonMultiply;
-   @FXML Button buttonDivide;
-   @FXML Button buttonPercent;
-   @FXML Button buttonEquals;
-   @FXML Button buttonClear;
-   @FXML Button buttonPower;
-   @FXML Button buttonSqrt;
-   @FXML Button buttonSin;
-   @FXML Button buttonCos;
-   @FXML Button buttonTan;
-   @FXML Button buttonCosInv;
-   @FXML Button buttonTanInv;
-   @FXML Button buttonSinInv;
-   @FXML Button buttonE;
-   @FXML Button buttonAbs;
-   @FXML Button buttonLN;
-   @FXML Button buttonLeftBracket;
-   @FXML Button buttonRightBracket;
-   @FXML Button buttonBackspace;
-   @FXML Button buttonDecimalPoint;
+//   @FXML Button button1;
+//   @FXML Button button2;
+//   @FXML Button button3;
+//   @FXML Button button4;
+//   @FXML Button button5;
+//   @FXML Button button6;
+//   @FXML Button button7;
+//   @FXML Button button8;
+//   @FXML Button button9;
+//   @FXML Button button0;
+//   @FXML Button buttonPlus;
+//   @FXML Button buttonMinus;
+//   @FXML Button buttonMultiply;
+//   @FXML Button buttonDivide;
+//   @FXML Button buttonPercent;
+//   @FXML Button buttonEquals;
+//   @FXML Button buttonClear;
+//   @FXML Button buttonPower;
+//   @FXML Button buttonSqrt;
+//   @FXML Button buttonSin;
+//   @FXML Button buttonCos;
+//   @FXML Button buttonTan;
+//   @FXML Button buttonCosInv;
+//   @FXML Button buttonTanInv;
+//   @FXML Button buttonSinInv;
+//   @FXML Button buttonE;
+//   @FXML Button buttonAbs;
+//   @FXML Button buttonLN;
+//   @FXML Button buttonLeftBracket;
+//   @FXML Button buttonRightBracket;
+//   @FXML Button buttonBackspace;
+//   @FXML Button buttonDecimalPoint;
 
-    // Main AnchorPane
+
+
+
+
     @FXML
-    protected AnchorPane FullPane;
+    private AnchorPane BisectionPane;
+
+    @FXML
+    private AnchorPane DiffPane;
+
+    @FXML
+    private AnchorPane FalsePositionPane;
+
+    @FXML
+    private Button FixedPointBTN1;
+
+    @FXML
+    private Button FixedPointBTN2;
+
+    @FXML
+    private Label FixedPointLabel;
+
+    @FXML
+    private AnchorPane FixedPointPane;
+
+    @FXML
+    private AnchorPane FullPane;
+
+    @FXML
+    private AnchorPane IntegPane;
+
+    @FXML
+    private AnchorPane LagrangePane;
+
+    @FXML
+    private AnchorPane LinearPane;
+
+    @FXML
+    private Button MainBisectionBTN;
+
+    @FXML
+    private Button MainDiffBTN;
+
+    @FXML
+    private Button MainFalseBTN;
+
+    @FXML
+    private Button MainFixedBTN;
+
+    @FXML
+    private Button MainIntegBTN;
+
+    @FXML
+    private Button MainLagrangeBTN;
+
+    @FXML
+    private Button MainLinearBTN;
+
+    @FXML
+    private Button MainNewtonBTN;
+
+    @FXML
+    private Button MainNewtonDivBTN;
+
+    @FXML
+    private Button MainNonLinearBTN;
+
+    @FXML
+    private AnchorPane MainOptionsPane;
+
+    @FXML
+    private AnchorPane NewtonDivPane;
+
+    @FXML
+    private AnchorPane NewtonPane;
+
+    @FXML
+    private AnchorPane NonLinearPane;
+
+
 
 
     Timeline timeline;
@@ -61,45 +142,56 @@ public class CalculatorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setupAnimation(button1);
-        setupAnimation(button2);
-        setupAnimation(button3);
-        setupAnimation(button4);
-        setupAnimation(button5);
-        setupAnimation(button6);
-        setupAnimation(button7);
-        setupAnimation(button8);
-        setupAnimation(button9);
-        setupAnimation(button0);
-        setupAnimation(buttonPlus);
-        setupAnimation(buttonMinus);
-        setupAnimation(buttonMultiply);
-        setupAnimation(buttonDivide);
-        setupAnimation(buttonPercent);
-        setupAnimation(buttonEquals);
-        setupAnimation(buttonClear);
-        setupAnimation(buttonPower);
-        setupAnimation(buttonSqrt);
-        setupAnimation(buttonSin);
-        setupAnimation(buttonCos);
-        setupAnimation(buttonTan);
-        setupAnimation(buttonCosInv);
-        setupAnimation(buttonTanInv);
-        setupAnimation(buttonSinInv);
-        setupAnimation(buttonE);
-        setupAnimation(buttonAbs);
-        setupAnimation(buttonLN);
-        setupAnimation(buttonLeftBracket);
-        setupAnimation(buttonRightBracket);
-        setupAnimation(buttonBackspace);
-        setupAnimation(buttonDecimalPoint);
-        setupAnimation(buttonEquals);
+//        setupAnimation(button1);
+//        setupAnimation(button2);
+//        setupAnimation(button3);
+//        setupAnimation(button4);
+//        setupAnimation(button5);
+//        setupAnimation(button6);
+//        setupAnimation(button7);
+//        setupAnimation(button8);
+//        setupAnimation(button9);
+//        setupAnimation(button0);
+//        setupAnimation(buttonPlus);
+//        setupAnimation(buttonMinus);
+//        setupAnimation(buttonMultiply);
+//        setupAnimation(buttonDivide);
+//        setupAnimation(buttonPercent);
+//        setupAnimation(buttonEquals);
+//        setupAnimation(buttonClear);
+//        setupAnimation(buttonPower);
+//        setupAnimation(buttonSqrt);
+//        setupAnimation(buttonSin);
+//        setupAnimation(buttonCos);
+//        setupAnimation(buttonTan);
+//        setupAnimation(buttonCosInv);
+//        setupAnimation(buttonTanInv);
+//        setupAnimation(buttonSinInv);
+//        setupAnimation(buttonE);
+//        setupAnimation(buttonAbs);
+//        setupAnimation(buttonLN);
+//        setupAnimation(buttonLeftBracket);
+//        setupAnimation(buttonRightBracket);
+//        setupAnimation(buttonBackspace);
+//        setupAnimation(buttonDecimalPoint);
+//        setupAnimation(buttonEquals);
+
+        setupAnimation(MainFixedBTN);
+        setupAnimation(MainBisectionBTN);
+        setupAnimation(MainDiffBTN);
+        setupAnimation(MainFalseBTN);
+        setupAnimation(MainNonLinearBTN);
+        setupAnimation(MainNewtonBTN);
+        setupAnimation(MainNewtonDivBTN);
+        setupAnimation(MainLagrangeBTN);
+        setupAnimation(MainLinearBTN);
+        setupAnimation(MainIntegBTN);
     }
+
 
     public void setupAnimation(Button button) {
 
-        if (button == button0 || button == button1 || button == button2 || button == button3 || button == button4 || button == button5 || button == button6 || button == button7
-            || button == button8 || button == button9 || button == button0 || button == buttonDecimalPoint) {
+
             Timeline timeline = new Timeline(
                     new KeyFrame(Duration.millis(8), e -> updateNumberButtonStyle(button))
             );
@@ -111,38 +203,55 @@ public class CalculatorController implements Initializable {
                 timeline.stop();
                 button.setStyle("");
             });
-        }
-        else if (button == buttonPlus || button == buttonMinus || button == buttonMultiply || button == buttonDivide
-            || button == buttonPercent || button == buttonEquals || button == buttonCos || button == buttonTan || button == buttonCosInv || button == buttonTanInv
-            || button == buttonSin || button == buttonSinInv || button == buttonE || button == buttonAbs || button == buttonLN || button == buttonLeftBracket
-            || button == buttonRightBracket || button == buttonSqrt || button == buttonPower) {
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(8), e -> updateOtherButtonStyle(button))
-            );
-            timeline.setCycleCount(Timeline.INDEFINITE);
-
-            button.setOnMouseEntered(e -> timeline.play());
-            button.setOnMouseExited(e -> {
-                colourscaling = 0;
-                timeline.stop();
-                button.setStyle("");
-            });
-        }
-        else if (button == buttonClear || button == buttonBackspace) {
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(8), e -> updateExitButtonStyle(button))
-            );
-            timeline.setCycleCount(Timeline.INDEFINITE);
-
-            button.setOnMouseEntered(e -> timeline.play());
-            button.setOnMouseExited(e -> {
-                colourscaling = 0;
-                timeline.stop();
-                button.setStyle("");
-            });
-        }
-
     }
+
+//    public void setupAnimation(Button button) {
+//
+//        if (button == button0 || button == button1 || button == button2 || button == button3 || button == button4 || button == button5 || button == button6 || button == button7
+//            || button == button8 || button == button9 || button == button0 || button == buttonDecimalPoint) {
+//            Timeline timeline = new Timeline(
+//                    new KeyFrame(Duration.millis(8), e -> updateNumberButtonStyle(button))
+//            );
+//            timeline.setCycleCount(Timeline.INDEFINITE);
+//
+//            button.setOnMouseEntered(e -> timeline.play());
+//            button.setOnMouseExited(e -> {
+//                colourscaling = 0;
+//                timeline.stop();
+//                button.setStyle("");
+//            });
+//        }
+//        else if (button == buttonPlus || button == buttonMinus || button == buttonMultiply || button == buttonDivide
+//            || button == buttonPercent || button == buttonEquals || button == buttonCos || button == buttonTan || button == buttonCosInv || button == buttonTanInv
+//            || button == buttonSin || button == buttonSinInv || button == buttonE || button == buttonAbs || button == buttonLN || button == buttonLeftBracket
+//            || button == buttonRightBracket || button == buttonSqrt || button == buttonPower) {
+//            Timeline timeline = new Timeline(
+//                    new KeyFrame(Duration.millis(8), e -> updateOtherButtonStyle(button))
+//            );
+//            timeline.setCycleCount(Timeline.INDEFINITE);
+//
+//            button.setOnMouseEntered(e -> timeline.play());
+//            button.setOnMouseExited(e -> {
+//                colourscaling = 0;
+//                timeline.stop();
+//                button.setStyle("");
+//            });
+//        }
+//        else if (button == buttonClear || button == buttonBackspace) {
+//            Timeline timeline = new Timeline(
+//                    new KeyFrame(Duration.millis(8), e -> updateExitButtonStyle(button))
+//            );
+//            timeline.setCycleCount(Timeline.INDEFINITE);
+//
+//            button.setOnMouseEntered(e -> timeline.play());
+//            button.setOnMouseExited(e -> {
+//                colourscaling = 0;
+//                timeline.stop();
+//                button.setStyle("");
+//            });
+//        }
+//
+//    }
     private void updateNumberButtonStyle(Button button) {
         // Your existing scaling logic
         if (colourscaling > 94) {
@@ -215,9 +324,221 @@ public class CalculatorController implements Initializable {
 //        KeyValue kv = new KeyValue(OptionsPane.translateYProperty(), 0, Interpolator.EASE_IN);
 //        KeyFrame kf = new KeyFrame(Duration.seconds(1), kv);
 //        timeline.getKeyFrames().add(kf);
-        System.out.println("hello world");
-        gridPane.setOpacity(0.5); // REMEMBER TO SET IT BACK WHEN CALCULATING AGAIN
+//        System.out.println("hello world");
+//        gridPane.setOpacity(0.5); // REMEMBER TO SET IT BACK WHEN CALCULATING AGAIN
 
+    }
+
+
+
+    public void FixedPointOptions(ActionEvent event) {
+        if (event.getSource() == FixedPointBTN1) {
+            FixedPointLabel.setText(FixedPoint.FixedPoint1(1));
+        } else if (event.getSource() == FixedPointBTN2) {
+            FixedPointLabel.setText(FixedPoint.FixedPoint2(Math.PI));
+        }
+    }
+
+
+    @FXML
+    private TextField BisectionATXT;
+
+    @FXML
+    private TextField BisectionBTXT;
+
+    @FXML
+    private Label BisectionLabel;
+    public void BisectionOptions(ActionEvent event) {
+        if (BisectionATXT != null && BisectionBTXT != null ) {
+            BisectionLabel.setText(Bisection.BisectionMethod1(Double.parseDouble(BisectionATXT.getText()), Double.parseDouble(BisectionBTXT.getText())));
+        } else {
+            Bisection.BisectionMethod1(1, 2);
+        }
+    }
+
+
+
+    @FXML
+    private TextField FalseATXT;
+
+    @FXML
+    private TextField FalseBTXT;
+
+    @FXML
+    private Label FalsePositionLabel;
+
+    public void FalsePosition(ActionEvent event) {
+        if (FalseATXT != null && FalseBTXT != null ) {
+            FalsePositionLabel.setText(FalsePosition.FalsePosition(Double.parseDouble(FalseATXT.getText()), Double.parseDouble(FalseBTXT.getText())));
+        } else {
+            FalsePosition.FalsePosition(1, 2);
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void SwitchScenes(ActionEvent event) {
+        if (event.getSource() == MainFixedBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(true);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == MainBisectionBTN){
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(true);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == MainFalseBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(true);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == MainNewtonBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(true);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == MainLinearBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(true);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == MainNonLinearBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(true);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == MainLagrangeBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(true);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == NewtonDivPane) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(true);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == MainDiffBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(true);
+            IntegPane.setVisible(false);
+        }
+        else if (event.getSource() == MainIntegBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(true);
+        }
+         else {
+            MainOptionsPane.setVisible(true);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        }
     }
 
 
