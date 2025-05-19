@@ -377,6 +377,57 @@ public class CalculatorController implements Initializable {
     }
 
 
+    @FXML
+    private TextField SecantATXT;
+
+    @FXML
+    private TextField SecantBTXT;
+
+    @FXML
+    private Label SecantLabel;
+
+    public void Secant(ActionEvent event) {
+        SecantLabel.setText(Secant.Secant(Double.parseDouble(SecantATXT.getText()), Double.parseDouble(SecantBTXT.getText())));
+    }
+
+
+
+    @FXML
+    private Label LinearLabel;
+    @FXML
+    private TextField X11TXT;
+    @FXML
+    private TextField X12TXT;
+    @FXML
+    private TextField X13TXT;
+    @FXML
+    private TextField X21TXT;
+    @FXML
+    private TextField X22TXT;
+    @FXML
+    private TextField X23TXT;
+    @FXML
+    private TextField X31TXT;
+    @FXML
+    private TextField X32TXT;
+    @FXML
+    private TextField X33TXT;
+    @FXML
+    private TextField X14TXT;
+    @FXML
+    private TextField X24TXT;
+    @FXML
+    private TextField X34TXT;
+
+
+    public void Jacobi() {
+        double X1_0 = 0, X2_0 = 0, X3_0 = 0; // Initial guess
+        double tolerance = 1e-14;
+            LinearLabel.setText(tt.Jacobi(Double.parseDouble(X11TXT.getText()), Double.parseDouble(X12TXT.getText()), Double.parseDouble(X13TXT.getText()), Double.parseDouble(X14TXT.getText()),
+                    Double.parseDouble(X21TXT.getText()), Double.parseDouble(X22TXT.getText()), Double.parseDouble(X23TXT.getText()), Double.parseDouble(X24TXT.getText()),
+                            Double.parseDouble(X31TXT.getText()), Double.parseDouble(X32TXT.getText()), Double.parseDouble(X33TXT.getText()), Double.parseDouble(X34TXT.getText()),
+                    X1_0, X2_0, X3_0, tolerance));
+    }
 
 
 
@@ -392,6 +443,12 @@ public class CalculatorController implements Initializable {
 
 
 
+
+
+    @FXML
+    private AnchorPane SecantPane;
+    @FXML
+    private Button MainSecantBTN;
 
 
 
@@ -402,45 +459,59 @@ public class CalculatorController implements Initializable {
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);
             NewtonDivPane.setVisible(false);
             DiffPane.setVisible(false);
             IntegPane.setVisible(false);
-        }
-        else if (event.getSource() == MainBisectionBTN){
+        } else if (event.getSource() == MainBisectionBTN) {
             MainOptionsPane.setVisible(false);
             FixedPointPane.setVisible(false);
             BisectionPane.setVisible(true);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);
             NewtonDivPane.setVisible(false);
             DiffPane.setVisible(false);
             IntegPane.setVisible(false);
-        }
-        else if (event.getSource() == MainFalseBTN) {
+        } else if (event.getSource() == MainFalseBTN) {
             MainOptionsPane.setVisible(false);
             FixedPointPane.setVisible(false);
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(true);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);
             NewtonDivPane.setVisible(false);
             DiffPane.setVisible(false);
             IntegPane.setVisible(false);
-        }
-        else if (event.getSource() == MainNewtonBTN) {
+        } else if (event.getSource() == MainNewtonBTN) {
             MainOptionsPane.setVisible(false);
             FixedPointPane.setVisible(false);
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(true);
+            SecantPane.setVisible(false);
+            LinearPane.setVisible(false);
+            NonLinearPane.setVisible(false);
+            LagrangePane.setVisible(false);
+            NewtonDivPane.setVisible(false);
+            DiffPane.setVisible(false);
+            IntegPane.setVisible(false);
+        } else if (event.getSource() == MainSecantBTN) {
+            MainOptionsPane.setVisible(false);
+            FixedPointPane.setVisible(false);
+            BisectionPane.setVisible(false);
+            FalsePositionPane.setVisible(false);
+            NewtonPane.setVisible(false);
+            SecantPane.setVisible(true);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);
@@ -454,6 +525,7 @@ public class CalculatorController implements Initializable {
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(true);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);
@@ -467,6 +539,7 @@ public class CalculatorController implements Initializable {
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(true);
             LagrangePane.setVisible(false);
@@ -480,6 +553,7 @@ public class CalculatorController implements Initializable {
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(true);
@@ -493,6 +567,7 @@ public class CalculatorController implements Initializable {
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);
@@ -506,6 +581,7 @@ public class CalculatorController implements Initializable {
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);
@@ -519,6 +595,7 @@ public class CalculatorController implements Initializable {
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);
@@ -532,6 +609,7 @@ public class CalculatorController implements Initializable {
             BisectionPane.setVisible(false);
             FalsePositionPane.setVisible(false);
             NewtonPane.setVisible(false);
+            SecantPane.setVisible(false);
             LinearPane.setVisible(false);
             NonLinearPane.setVisible(false);
             LagrangePane.setVisible(false);

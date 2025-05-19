@@ -319,40 +319,6 @@ public class Backend {
         return answer;
     }
 
-    public static double Romberg(ArrayList<Double> a, ArrayList<Double> b, double n) {
-
-        ArrayList<Double> x = new ArrayList<>();
-        ArrayList<Double> fx = new ArrayList<>();
-        ArrayList<Double> points = new ArrayList<>();
-        points.add( (a.get(0) + b.get(0)) / 2 );        // 0
-        for (int i = 0; i < n; i++) {
-            if (a.size() == 1) {
-                x.add(points.get(i));
-            } else if (points.size() == 1) {
-                points.add((a.get(0) + points.get(i)) /2); // 1
-                points.add((b.get(0) + points.get(i)) /2); //2
-            } else {
-                points.add( (a.get(0) + points.get(i)) /2 );
-                points.add( (b.get(0) + points.get(points.size()-1-i)) /2);
-                points.add ( (points.get(0) + points.get(i)) /2 );
-                points.add( (points.get(0) + points.get(points.size()-1-i)) /2);
-            }
-        }
-        for (int i = 1; i < points.size(); i++) {
-            x.add(points.get(i));
-            System.out.println(x.get(i));
-        }
-        double temp;
-        for (int i = 0; i < x.size(); i++) {
-            temp = Math.pow(x.get(i), 2);
-            fx.add(temp);
-        }
-
-        for (int i = 0; i < n; i++) {
-
-        }
-        return n; // WRONG RETURN
-    }
 
 
 

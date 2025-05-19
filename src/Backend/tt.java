@@ -1,3 +1,5 @@
+package Backend;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -51,8 +53,8 @@ public class tt {
         double X1_0 = 0, X2_0 = 0, X3_0 = 0; // Initial guess
         double A = X1_0, B = X2_0, C = X3_0; // Previous values
 
-        double tolerance = 1e-16;
-        Jacobi(a1,a2,a3,a4,b1,b2,b3,b4,c1,c2,c3,c4,X1_0,X2_0,X3_0,A,B,C,tolerance);
+        double tolerance = 1e-14;
+        Jacobi(a1,a2,a3,a4,b1,b2,b3,b4,c1,c2,c3,c4,X1_0,X2_0,X3_0, tolerance);
         System.out.println("if you want to modify system of linear equation by Gauss Seidle : y/n");
         char choice = input.next().charAt(0);
         if (choice == 'y') {Gauss_Seidle(a1,a2,a3,a4,b1,b2,b3,b4,c1,c2,c3,c4,X1_0,X2_0,X3_0,A,B,C,tolerance);}
@@ -140,44 +142,46 @@ public class tt {
             System.out.println(" ]");
         }
     }
-    public static void Jacobi(double a1 ,double a2,double a3,double a4,double b1,double b2,double b3,double b4,double c1 , double c2 ,double c3 ,double c4,double X1_0 ,double X2_0 ,double X3_0 ,double A ,double B ,double C , double tolerance) {
-        double Ax, BY, CZ;
-        int Iterations = 0;
+        public static String Jacobi(double a1 ,double a2,double a3,double a4,double b1,double b2,double b3,double b4,double c1 , double c2 ,double c3 ,double c4,double X1_0 ,double X2_0 ,double X3_0 , double tolerance) {
+            String loop = "";
+            double Ax, BY, CZ;
+            int Iterations = 0;
+            double A, B, C;
 
-        do {
+            do {
 // Store previous values
-            A = X1_0;
-            B = X2_0;
-            C = X3_0;
+                A = X1_0;
+                B = X2_0;
+                C = X3_0;
 
 // Update new values using Jacobi iteration
-            X1_0 = (1.0 / a1) * (a4 - (a2 * B) -(a3 * C));
-            X2_0 = (1.0 / b2) * (b4 - (b1 * A) - (b3 * C));
-            X3_0 = (1.0 / c3) * (c4 - (c1 * X1_0) -(c2 * B));
+                X1_0 = (1.0 / a1) * (a4 - (a2 * B) - (a3 * C));
+                X2_0 = (1.0 / b2) * (b4 - (b1 * A) - (b3 * C));
+                X3_0 = (1.0 / c3) * (c4 - (c1 * X1_0) - (c2 * B));
 
 // Compute differences
-            Ax = X1_0 - A;
-            BY = X2_0 - B;
-            CZ = X3_0 - C;
+                Ax = X1_0 - A;
+                BY = X2_0 - B;
+                CZ = X3_0 - C;
 
-            Iterations++;
-            System.out.println("Iteration " + Iterations + ":");
-            System.out.println("X1 = " + X1_0);
-            System.out.println("X2 = " + X2_0);
-            System.out.println("X3 = " + X3_0);
-            System.out.println("------------------");
+                Iterations++;
+                loop += "Iteration " + Iterations + ":\n";
+                loop += "X1 = " + X1_0 + "\n";
+                loop += "X2 = " + X2_0 + "\n";
+                loop += "X3 = " + X3_0 + "\n";
+                loop += "--------------------------- \n";
 
 
-        } while (Math.abs(Ax) > tolerance && Math.abs(BY) > tolerance && Math.abs(CZ) > tolerance);
+            } while (Math.abs(Ax) > tolerance && Math.abs(BY) > tolerance && Math.abs(CZ) > tolerance);
 
-        System.out.println("\nFinal Solution:");
-        System.out.println("X1 = " + Math.floor(X1_0));
-        System.out.println("X2 = " + Math.floor(X2_0));
-        System.out.println("X3 = " + Math.ceil(X3_0));
-        System.out.println("Total Iterations: " + Iterations);
-        System.out.println();
+            loop += "\nFinal Solution: \n";
+            loop += "X1 = " + Math.floor(X1_0) + "\n";
+            loop += "X2 = " + Math.floor(X2_0) + "\n";
+            loop += "X3 = " + Math.ceil(X3_0) + "\n";
+            loop += "Total Iterations: " + Iterations + "\n";
 
-    }
+            return loop;
+        }
     public static void Gauss_Seidle(double a1 ,double a2,double a3,double a4,double b1,double b2,double b3,double b4,double c1 , double c2 ,double c3 ,double c4,double X1_0 ,double X2_0 ,double X3_0 ,double A ,double B ,double C , double tolerance) {
         double Ax, BY, CZ;
         int Iterations = 0;

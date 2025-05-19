@@ -43,7 +43,7 @@
             </HBox>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="MainOptionsPane" depthTest="ENABLE" layoutY="192.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="1598.0" prefWidth="1280.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="441.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="MainOptionsPane" depthTest="ENABLE" layoutY="192.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="1598.0" prefWidth="1280.0" styleClass="optionsPane" stylesheets="@stylesheets.css" AnchorPane.bottomAnchor="441.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <VBox alignment="CENTER" layoutX="28.0" layoutY="15.0" prefHeight="357.0" prefWidth="1198.0">
                <children>
@@ -57,18 +57,19 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="1198.0" spacing="10.0">
                      <children>
+                        <Button fx:id="MainSecantBTN" alignment="CENTER" mnemonicParsing="false" onAction="#SwitchScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Secant" textAlignment="CENTER" wrapText="true" />
                         <Button fx:id="MainLinearBTN" alignment="CENTER" mnemonicParsing="false" onAction="#SwitchScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="System of Linear Equations" textAlignment="CENTER" wrapText="true" />
                         <Button fx:id="MainNonLinearBTN" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#SwitchScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="System of Non Linear Equations" textAlignment="CENTER" wrapText="true" />
                         <Button fx:id="MainLagrangeBTN" alignment="CENTER" layoutX="184.0" layoutY="10.0" mnemonicParsing="false" onAction="#SwitchScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="LaGrange Interpolation" textAlignment="CENTER" wrapText="true" />
-                        <Button fx:id="MainNewtonDivBTN" alignment="CENTER" layoutX="359.0" layoutY="10.0" mnemonicParsing="false" onAction="#SwitchScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Newton's Divided Difference Interpolation" textAlignment="CENTER" wrapText="true">
-                           <font>
-                              <Font name="Calibri" size="10.0" />
-                           </font>
-                        </Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="1198.0" spacing="10.0">
                      <children>
+                        <Button fx:id="MainNewtonDivBTN" alignment="CENTER" mnemonicParsing="false" onAction="#SwitchScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Newton's Divided Difference Interpolation" textAlignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="Calibri" size="10.0" />
+                           </font>
+                        </Button>
                         <Button fx:id="MainDiffBTN" alignment="CENTER" mnemonicParsing="false" onAction="#SwitchScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Numerical Differentiation " textAlignment="CENTER" wrapText="true" />
                         <Button fx:id="MainIntegBTN" alignment="CENTER" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#SwitchScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text=" Integration " textAlignment="CENTER" wrapText="true" />
                      </children>
@@ -107,7 +108,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="BisectionPane" depthTest="ENABLE" layoutX="20.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="BisectionPane" depthTest="ENABLE" layoutX="20.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ScrollPane layoutX="415.0" layoutY="70.0" prefHeight="714.0" prefWidth="822.0" stylesheets="@stylesheets.css">
                <content>
@@ -158,7 +159,7 @@
             <Button alignment="CENTER" layoutX="61.0" layoutY="535.0" mnemonicParsing="false" onAction="#BisectionOptions" prefHeight="89.0" prefWidth="219.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="FalsePositionPane" depthTest="ENABLE" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css">
+      <AnchorPane fx:id="FalsePositionPane" depthTest="ENABLE" layoutX="10.0" layoutY="10.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false">
          <children>
             <ScrollPane layoutX="470.0" layoutY="70.0" prefHeight="714.0" prefWidth="767.0" stylesheets="@stylesheets.css">
                <content>
@@ -232,11 +233,62 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="LinearPane" depthTest="ENABLE" layoutX="50.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="SecantPane" depthTest="ENABLE" layoutX="20.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false">
          <children>
-            <ScrollPane prefHeight="659.0" prefWidth="630.0" stylesheets="@stylesheets.css">
+            <ScrollPane layoutX="470.0" layoutY="70.0" prefHeight="714.0" prefWidth="767.0" stylesheets="@stylesheets.css">
                <content>
-                  <Label alignment="TOP_LEFT" prefHeight="2039.0" prefWidth="610.0">
+                  <Label fx:id="SecantLabel" alignment="TOP_LEFT" prefHeight="2032.0" prefWidth="796.0" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="12.0" />
+                     </font>
+                  </Label>
+               </content>
+               <styleClass>
+                  <String fx:value="scroll-bar" />
+                  <String fx:value="transparent-scroll-pane" />
+                  <String fx:value="viewport" />
+               </styleClass>
+            </ScrollPane>
+            <Button alignment="CENTER" layoutX="20.0" layoutY="24.0" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Button>
+            <Label layoutX="43.0" layoutY="124.0" text="Secant Method" textFill="WHITE">
+               <font>
+                  <Font size="43.0" />
+               </font>
+            </Label>
+            <Label layoutX="48.0" layoutY="209.0" prefHeight="84.0" prefWidth="358.0" text="3x^2 - e^x = 0" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="47.0" layoutY="273.0" prefHeight="84.0" prefWidth="358.0" text="over [0, 1] - Default" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <TextField fx:id="SecantATXT" layoutX="73.0" layoutY="388.0" prefHeight="40.0" prefWidth="200.0" promptText="x0 value" />
+            <TextField fx:id="SecantBTXT" layoutX="75.0" layoutY="440.0" prefHeight="40.0" prefWidth="200.0" promptText="x1 Value" />
+            <Label layoutX="30.0" layoutY="365.0" prefHeight="84.0" prefWidth="79.0" text="X0" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="417.0" prefHeight="84.0" prefWidth="79.0" text="X1" textFill="WHITE">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Button alignment="CENTER" layoutX="61.0" layoutY="535.0" mnemonicParsing="false" onAction="#Secant" prefHeight="89.0" prefWidth="219.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="LinearPane" depthTest="ENABLE" layoutX="50.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ScrollPane layoutX="638.0" layoutY="48.0" prefHeight="727.0" prefWidth="732.0" stylesheets="@stylesheets.css">
+               <content>
+                  <Label fx:id="LinearLabel" alignment="TOP_LEFT" prefHeight="2049.0" prefWidth="672.0" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -248,11 +300,121 @@
                   <String fx:value="viewport" />
                </styleClass>
             </ScrollPane>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="22.0" layoutY="27.0" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Button>
+            <Label alignment="TOP_LEFT" layoutX="91.0" layoutY="104.0" prefHeight="46.0" prefWidth="432.0" text="System of Linear Equations" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <VBox layoutX="17.0" layoutY="183.0" prefHeight="157.0" prefWidth="644.0">
+               <children>
+                  <HBox prefHeight="36.0" prefWidth="346.0" spacing="8.0">
+                     <children>
+                        <TextField fx:id="X11TXT" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" text="X1" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X12TXT" layoutX="40.0" layoutY="10.0" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" layoutX="91.0" layoutY="10.0" text="X2" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X13TXT" layoutX="121.0" layoutY="10.0" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" text="X3" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="=" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X14TXT" layoutX="311.0" layoutY="10.0" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" layoutX="419.0" layoutY="10.0" text="X4" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="346.0" spacing="8.0">
+                     <children>
+                        <TextField fx:id="X21TXT" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" text="X1" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X22TXT" layoutX="40.0" layoutY="10.0" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" layoutX="91.0" layoutY="10.0" text="X2" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X23TXT" layoutX="121.0" layoutY="10.0" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" text="X3" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="=" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X24TXT" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" text="X4" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="113.0" prefHeight="70.0" prefWidth="346.0" spacing="8.0">
+                     <children>
+                        <TextField fx:id="X31TXT" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" text="X1" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X32TXT" layoutX="40.0" layoutY="10.0" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" layoutX="91.0" layoutY="10.0" text="X2" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X33TXT" layoutX="121.0" layoutY="10.0" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" text="X3" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" text="=" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="X34TXT" prefHeight="35.0" prefWidth="100.0" />
+                        <Label alignment="CENTER" text="X4" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button alignment="CENTER" layoutX="62.0" layoutY="503.0" mnemonicParsing="false" onAction="#Jacobi" prefHeight="89.0" prefWidth="219.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Jacobi" textAlignment="CENTER" wrapText="true" />
+            <Button alignment="CENTER" layoutX="295.0" layoutY="502.0" mnemonicParsing="false" onAction="#BisectionOptions" prefHeight="89.0" prefWidth="219.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Gauss Seidel" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="NonLinearPane" depthTest="ENABLE" layoutX="60.0" layoutY="60.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="2039.2" prefWidth="1280.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
