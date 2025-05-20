@@ -68,8 +68,8 @@ public class Backend {
                 System.out.println("₀|³ 1 / 9 + X² dx");
                 double a = 0;
                 double b = 3;
-                double n = 6;
-                System.out.println(Trapezoidal(a, b, n));
+                double n = input.nextDouble();
+                System.out.println(Trapezoidal.Trapezoidal(a, b, n));
             }
 
 
@@ -107,7 +107,7 @@ public class Backend {
                 double a = 0;
                 double b = 3;
                 double n = 6;
-                System.out.println(Simpson(a, b, n));
+                System.out.println(Simpson.Simpson(a, b, n));
             }
         }
 
@@ -121,7 +121,7 @@ public class Backend {
                 double a = 0.0;
                 double b = 8.0;
                 double n = 4.0;
-                System.out.println("ANSWER TO ROMBERG IS : "+testRomberg(a, b, n));
+                System.out.println("ANSWER TO ROMBERG IS : \n"+Romberg.testRomberg(a, b, n));
             }
         }
 
@@ -206,9 +206,18 @@ public class Backend {
 
 
     public static String Largradge(ArrayList<Double> x, ArrayList<Double> fx, double targetX) {
-        String mainLoop = "";
+        String mainLoop = "Table : \nX    |\t";
         double product = 0;
         double mult;
+        for (int i = 0; i < x.size(); i++) {
+            mainLoop += x.get(i) + "\t";
+        }
+        mainLoop += "\nF(x) |\t";
+        for (int i = 0; i < x.size(); i++) {
+            mainLoop += fx.get(i) + "\t";
+        }
+        mainLoop += "\n\n";
+
         for (int i = 0; i < x.size(); i++) {
             mult = 1;
             for (int j = 0; j < x.size(); j++) {
@@ -294,7 +303,7 @@ public class Backend {
 
 
     // MODIFIED TRAPEZOIDAL METHOD FOR ROMBERG ITERATIONS
-    public static double[][] extraTrapezoidal(double a, double step, ArrayList<Double> x, ArrayList<Double> fx) {
+    public static double[][] extraTrapezoidal(double a, double step, ArrayList<Double> fx) {
         double[][] answer = new double[2][1];
         double inbetween = 0;
         double answerNum;
@@ -401,7 +410,7 @@ public class Backend {
 
         for (int i = 0; i < n-1; i++) {
             step = step/2;
-            double[][] temp1 = extraTrapezoidal(array[0][i], step, x, fx);
+            double[][] temp1 = extraTrapezoidal(array[0][i], step, fx);
             array[0][i+1] = temp1[0][0];
             array[1][i+1] = temp1[1][0];
         }

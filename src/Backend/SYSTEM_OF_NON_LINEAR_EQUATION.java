@@ -1,5 +1,3 @@
-package Backend;
-
 import java.util.Arrays;
 
 public class SYSTEM_OF_NON_LINEAR_EQUATION {
@@ -8,63 +6,20 @@ public class SYSTEM_OF_NON_LINEAR_EQUATION {
         System.out.println("            3X - cos(YZ) -0.5 = 0");
         System.out.println("            4X^2 - 625 Y^2 + 2Y -1 = 0");
         System.out.println("            e^(-XY) + 20Z + (10π+3)/3 = 0");
-        double [][] X = new double[3][1];
-        int iterations = 0;
-        double tolerance = 1e-16;
-        System.out.println("Iterations: " + iterations);
-        double AX ;
-        double AY ;
-        double AZ ;
 
-         do{
 
-        double x = X[0][0];
-        double y = X[1][0];
-        double z = X[2][0];
-
-        double [][] F_x = {
-                {(3 * x)- Math.cos(y*z) - 0.5} ,
-                {4*(x*x) - 625*(y*y) + (2*y) - 1},
-                {Math.pow(Math.E,-(x*y)) + (20*z) + ((10*Math.PI)- 3)/3}
-        };
-        double [][] DFX = {
-                { 3 , z*Math.sin(y*z) , y*Math.sin(y*z) },
-                { 8*x , -1250*y +2 , 0},
-                { -y*Math.pow(Math.E,-(x*y)) , -x*Math.pow(Math.E,-(x*y)) , 20}
-        };
+        System.out.println(SystemofnonLinear());
 
 
 
-        double [] tem = new double[3];
-        for (int i = 0; i < 3; i++) {
-            tem [i] = - F_x[i][0];
-        }
 
 
-        double [] ζ = gaussianElimination3x3(DFX, tem);
 
-        double [][]X1 = new double[3][1];
-        for (int i = 0; i < 3; i++) {
-            X1[i][0] = ζ[i]+X[i][0];
-        }
-             System.out.println("X"+iterations+": ");
-             print2DArray(X);
-             iterations++;
-        //defference of the new and old elements
-         AX = X1[0][0]-X[0][0];
-         AY = X1[1][0]-X[1][0];
-         AZ = X1[2][0]-X[2][0];
-         X = X1;
-
-             System.out.println();
-         }
-         while (Math.abs(AX) > tolerance && Math.abs(AY) > tolerance && Math.abs(AZ) > tolerance);
-
-        System.out.println("total iterations: " + (iterations-1));
 
     }
-    public static void print2DArray(double[][] array) {
+    public static String print2DArray(double[][] array) {
         // Determine the maximum width needed for each column
+        String loop ="";
         int[] colWidths = new int[array[0].length];
         for (int j = 0; j < array[0].length; j++) {
             int maxWidth = 0;
@@ -79,16 +34,17 @@ public class SYSTEM_OF_NON_LINEAR_EQUATION {
 
         // Print the array with aligned columns
         for (int i = 0; i < array.length; i++) {
-            System.out.print("[ ");
+            loop+="[ ";
             for (int j = 0; j < array[i].length; j++) {
-                String formatted = ""+array[i][j];
-                System.out.print(formatted);
+                loop+= ""+array[i][j];
+
                 if (j < array[i].length - 1) {
-                    System.out.print(", ");
+                    loop+=", ";
                 }
+                loop+=" ]\n";
             }
-            System.out.println(" ]");
         }
+        return loop ;
     }
     /// /////////////////////////////////////////////////
     public static double[] gaussianElimination3x3(double[][] A, double[] b) {
@@ -133,5 +89,59 @@ public class SYSTEM_OF_NON_LINEAR_EQUATION {
         }
 
         return solution;
+    }
+    public static String SystemofnonLinear () {
+        String loop = "";
+        double [][] X = new double[3][1];
+        double AX ;
+        double AY ;
+        double AZ ;
+        int iterations = 0;
+        double tolerance = 1e-16;
+        do{
+
+            double x = X[0][0];
+            double y = X[1][0];
+            double z = X[2][0];
+
+            double [][] F_x = {
+                    {(3 * x)- Math.cos(y*z) - 0.5} ,
+                    {4*(x*x) - 625*(y*y) + (2*y) - 1},
+                    {Math.pow(Math.E,-(x*y)) + (20*z) + ((10*Math.PI)- 3)/3}
+            };
+            double [][] DFX = {
+                    { 3 , z*Math.sin(y*z) , y*Math.sin(y*z) },
+                    { 8*x , -1250*y +2 , 0},
+                    { -y*Math.pow(Math.E,-(x*y)) , -x*Math.pow(Math.E,-(x*y)) , 20}
+            };
+
+
+
+            double [] tem = new double[3];
+            for (int i = 0; i < 3; i++) {
+                tem [i] = - F_x[i][0];
+            }
+
+
+            double [] ζ = gaussianElimination3x3(DFX, tem);
+
+            double [][]X1 = new double[3][1];
+            for (int i = 0; i < 3; i++) {
+                X1[i][0] = ζ[i]+X[i][0];
+            }
+            loop+="X"+iterations+":\n" ;
+            loop+=print2DArray(X);
+            iterations++;
+            //defference of the new and old elements
+            AX = X1[0][0]-X[0][0];
+            AY = X1[1][0]-X[1][0];
+            AZ = X1[2][0]-X[2][0];
+            X = X1;
+
+            loop+="\n";
+        }
+        while (Math.abs(AX) > tolerance && Math.abs(AY) > tolerance && Math.abs(AZ) > tolerance);
+        loop+="\ntotal iterations: " + (iterations-1);
+        return loop;
     }
 }

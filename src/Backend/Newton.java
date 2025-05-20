@@ -1,3 +1,5 @@
+package Backend;
+
 import java.util.Scanner;
 
 public class Newton {
@@ -10,22 +12,20 @@ public class Newton {
         return Math.pow(Math.E,x) - 1;
     }
 
-    public static void newtonRaphson(double x0) {
-        System.out.println("Newton-Raphson Method for f(x) = e^X - X - 1");
-        double x = x0;
+    public static String newtonRaphson(double x0) {
+        String loop = "Newton-Raphson Method for f(x) = e^X - X - 1\n\n";
+
+        double xn = x0;
+        double x = xn - f(xn) / fdash(xn);
         int i = 1;
-        double tolerance = 1e-6;
-            do{
-                x = x - f(x) / fdash(x);
-                System.out.printf("x%d = ", i);
-                System.out.print(x+"\n");
-                i++;
-            }
-            while (Math.abs(x - x0) > tolerance&&i!=21); {
-
-            }
-
-
+        double tolerance = 1e-14;
+        do {
+            xn = x;
+            x = xn - f(xn) / fdash(xn);
+            loop += "x" + i + " = " + x +"\n";
+            i++;
+        } while (Math.abs(x - xn) > tolerance );
+        return loop;
     }
 
     public static void main(String[] args) {
@@ -33,6 +33,6 @@ public class Newton {
         System.out.println("Enter X0 : ");
         double x0 = input.nextDouble();
 
-        newtonRaphson(x0);
+        System.out.println(newtonRaphson(x0));
     }
 }

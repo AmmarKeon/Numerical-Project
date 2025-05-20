@@ -15,6 +15,7 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class CalculatorController implements Initializable {
@@ -52,9 +53,6 @@ public class CalculatorController implements Initializable {
 //   @FXML Button buttonRightBracket;
 //   @FXML Button buttonBackspace;
 //   @FXML Button buttonDecimalPoint;
-
-
-
 
 
     @FXML
@@ -133,8 +131,6 @@ public class CalculatorController implements Initializable {
     private AnchorPane NonLinearPane;
 
 
-
-
     Timeline timeline;
     String baseStyle = " -fx-background-color: #161a33;" +
             "    -fx-text-fill: white;" +
@@ -142,40 +138,6 @@ public class CalculatorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//        setupAnimation(button1);
-//        setupAnimation(button2);
-//        setupAnimation(button3);
-//        setupAnimation(button4);
-//        setupAnimation(button5);
-//        setupAnimation(button6);
-//        setupAnimation(button7);
-//        setupAnimation(button8);
-//        setupAnimation(button9);
-//        setupAnimation(button0);
-//        setupAnimation(buttonPlus);
-//        setupAnimation(buttonMinus);
-//        setupAnimation(buttonMultiply);
-//        setupAnimation(buttonDivide);
-//        setupAnimation(buttonPercent);
-//        setupAnimation(buttonEquals);
-//        setupAnimation(buttonClear);
-//        setupAnimation(buttonPower);
-//        setupAnimation(buttonSqrt);
-//        setupAnimation(buttonSin);
-//        setupAnimation(buttonCos);
-//        setupAnimation(buttonTan);
-//        setupAnimation(buttonCosInv);
-//        setupAnimation(buttonTanInv);
-//        setupAnimation(buttonSinInv);
-//        setupAnimation(buttonE);
-//        setupAnimation(buttonAbs);
-//        setupAnimation(buttonLN);
-//        setupAnimation(buttonLeftBracket);
-//        setupAnimation(buttonRightBracket);
-//        setupAnimation(buttonBackspace);
-//        setupAnimation(buttonDecimalPoint);
-//        setupAnimation(buttonEquals);
-
         setupAnimation(MainFixedBTN);
         setupAnimation(MainBisectionBTN);
         setupAnimation(MainDiffBTN);
@@ -186,125 +148,84 @@ public class CalculatorController implements Initializable {
         setupAnimation(MainLagrangeBTN);
         setupAnimation(MainLinearBTN);
         setupAnimation(MainIntegBTN);
+        setupAnimation(FixedPointBTN1);
+        setupAnimation(FixedPointBTN2);
+        setupAnimation(MainSecantBTN);
+        setupAnimation(LagrangeXBTN);
+        setupAnimation(LagrangeFXBTN);
+        setupAnimation(LagrangeXnBTN);
+        setupAnimation(MainTrapBTN);
+        setupAnimation(MainSimpBTN);
+        setupAnimation(MainRomBTN);
     }
 
 
     public void setupAnimation(Button button) {
 
 
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(8), e -> updateNumberButtonStyle(button))
-            );
-            timeline.setCycleCount(Timeline.INDEFINITE);
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(8), e -> updateNumberButtonStyle(button))
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE);
 
-            button.setOnMouseEntered(e -> timeline.play());
-            button.setOnMouseExited(e -> {
-                colourscaling = 0;
-                timeline.stop();
-                button.setStyle("");
-            });
+        button.setOnMouseEntered(e -> timeline.play());
+        button.setOnMouseExited(e -> {
+            colourscaling = 0;
+            timeline.stop();
+            button.setStyle("");
+        });
     }
 
-//    public void setupAnimation(Button button) {
-//
-//        if (button == button0 || button == button1 || button == button2 || button == button3 || button == button4 || button == button5 || button == button6 || button == button7
-//            || button == button8 || button == button9 || button == button0 || button == buttonDecimalPoint) {
-//            Timeline timeline = new Timeline(
-//                    new KeyFrame(Duration.millis(8), e -> updateNumberButtonStyle(button))
-//            );
-//            timeline.setCycleCount(Timeline.INDEFINITE);
-//
-//            button.setOnMouseEntered(e -> timeline.play());
-//            button.setOnMouseExited(e -> {
-//                colourscaling = 0;
-//                timeline.stop();
-//                button.setStyle("");
-//            });
-//        }
-//        else if (button == buttonPlus || button == buttonMinus || button == buttonMultiply || button == buttonDivide
-//            || button == buttonPercent || button == buttonEquals || button == buttonCos || button == buttonTan || button == buttonCosInv || button == buttonTanInv
-//            || button == buttonSin || button == buttonSinInv || button == buttonE || button == buttonAbs || button == buttonLN || button == buttonLeftBracket
-//            || button == buttonRightBracket || button == buttonSqrt || button == buttonPower) {
-//            Timeline timeline = new Timeline(
-//                    new KeyFrame(Duration.millis(8), e -> updateOtherButtonStyle(button))
-//            );
-//            timeline.setCycleCount(Timeline.INDEFINITE);
-//
-//            button.setOnMouseEntered(e -> timeline.play());
-//            button.setOnMouseExited(e -> {
-//                colourscaling = 0;
-//                timeline.stop();
-//                button.setStyle("");
-//            });
-//        }
-//        else if (button == buttonClear || button == buttonBackspace) {
-//            Timeline timeline = new Timeline(
-//                    new KeyFrame(Duration.millis(8), e -> updateExitButtonStyle(button))
-//            );
-//            timeline.setCycleCount(Timeline.INDEFINITE);
-//
-//            button.setOnMouseEntered(e -> timeline.play());
-//            button.setOnMouseExited(e -> {
-//                colourscaling = 0;
-//                timeline.stop();
-//                button.setStyle("");
-//            });
-//        }
-//
-//    }
     private void updateNumberButtonStyle(Button button) {
         // Your existing scaling logic
         if (colourscaling > 94) {
-            colourscaling+= 0.465;
-        }
-        else if (colourscaling < 1.1) {
+            colourscaling += 0.465;
+        } else if (colourscaling < 1.1) {
             colourscaling += 0.265;
         } else if (colourscaling < 5) {
             colourscaling += 0.465;
         } else {
-            colourscaling+=2;
+            colourscaling += 2;
         }
 
         button.setStyle("-fx-background-radius: 32; " +
-                "  -fx-background-color: linear-gradient(to top right, #083054 "+colourscaling+"%, transparent 0%);" +
-                " -fx-text-fill: linear-gradient(to right, white "+colourscaling+"%, transparent 0%);");
+                "  -fx-background-color: linear-gradient(to top right, #083054 " + colourscaling + "%, transparent 0%);" +
+                " -fx-text-fill: linear-gradient(to right, white " + colourscaling + "%, transparent 0%);");
     }
 
 
     private void updateOtherButtonStyle(Button button) {
         // Your existing scaling logic
         if (colourscaling > 94) {
-            colourscaling+= 0.465;
-        }
-        else if (colourscaling < 1.1) {
+            colourscaling += 0.465;
+        } else if (colourscaling < 1.1) {
             colourscaling += 0.265;
         } else if (colourscaling < 5) {
             colourscaling += 0.465;
         } else {
-            colourscaling+=2;
+            colourscaling += 2;
         }
 
         button.setStyle("-fx-background-radius: 32; " +
-                "  -fx-background-color: linear-gradient(to top right, #e531c4 "+colourscaling+"%, transparent 0%);" +
-                " -fx-text-fill: linear-gradient(to right, black "+colourscaling+"%, transparent 0%);");
+                "  -fx-background-color: linear-gradient(to top right, #e531c4 " + colourscaling + "%, transparent 0%);" +
+                " -fx-text-fill: linear-gradient(to right, black " + colourscaling + "%, transparent 0%);");
     }
 
     private void updateExitButtonStyle(Button button) {
         // Your existing scaling logic
         if (colourscaling > 94) {
-            colourscaling+= 0.465;
-        }
-        else if (colourscaling < 1.1) {
+            colourscaling += 0.465;
+        } else if (colourscaling < 1.1) {
             colourscaling += 0.265;
         } else if (colourscaling < 5) {
             colourscaling += 0.465;
         } else {
-            colourscaling+=2;
+            colourscaling += 2;
         }
 
         button.setStyle("-fx-background-radius: 32; " +
-                "  -fx-background-color: linear-gradient(to top right, #9b2915 "+colourscaling+"%, transparent 0%);" +
-                " -fx-text-fill: linear-gradient(to right, white "+colourscaling+"%, transparent 0%);");
+                "  -fx-background-color: linear-gradient(to top right, #9b2915 " + colourscaling + "%, transparent 0%);" +
+                " -fx-text-fill: linear-gradient(to right, white " + colourscaling + "%, transparent 0%);");
     }
 
 
@@ -312,7 +233,6 @@ public class CalculatorController implements Initializable {
     protected AnchorPane OptionsPane;
     @FXML
     protected GridPane gridPane;
-
 
 
     @FXML
@@ -328,7 +248,6 @@ public class CalculatorController implements Initializable {
 //        gridPane.setOpacity(0.5); // REMEMBER TO SET IT BACK WHEN CALCULATING AGAIN
 
     }
-
 
 
     public void FixedPointOptions(ActionEvent event) {
@@ -348,14 +267,14 @@ public class CalculatorController implements Initializable {
 
     @FXML
     private Label BisectionLabel;
+
     public void BisectionOptions(ActionEvent event) {
-        if (BisectionATXT != null && BisectionBTXT != null ) {
+        if (BisectionATXT != null && BisectionBTXT != null) {
             BisectionLabel.setText(Bisection.BisectionMethod1(Double.parseDouble(BisectionATXT.getText()), Double.parseDouble(BisectionBTXT.getText())));
         } else {
             Bisection.BisectionMethod1(1, 2);
         }
     }
-
 
 
     @FXML
@@ -368,7 +287,7 @@ public class CalculatorController implements Initializable {
     private Label FalsePositionLabel;
 
     public void FalsePosition(ActionEvent event) {
-        if (FalseATXT != null && FalseBTXT != null ) {
+        if (FalseATXT != null && FalseBTXT != null) {
             FalsePositionLabel.setText(FalsePosition.FalsePosition(Double.parseDouble(FalseATXT.getText()), Double.parseDouble(FalseBTXT.getText())));
         } else {
             FalsePosition.FalsePosition(1, 2);
@@ -389,7 +308,6 @@ public class CalculatorController implements Initializable {
     public void Secant(ActionEvent event) {
         SecantLabel.setText(Secant.Secant(Double.parseDouble(SecantATXT.getText()), Double.parseDouble(SecantBTXT.getText())));
     }
-
 
 
     @FXML
@@ -423,13 +341,144 @@ public class CalculatorController implements Initializable {
     public void Jacobi() {
         double X1_0 = 0, X2_0 = 0, X3_0 = 0; // Initial guess
         double tolerance = 1e-14;
-            LinearLabel.setText(tt.Jacobi(Double.parseDouble(X11TXT.getText()), Double.parseDouble(X12TXT.getText()), Double.parseDouble(X13TXT.getText()), Double.parseDouble(X14TXT.getText()),
-                    Double.parseDouble(X21TXT.getText()), Double.parseDouble(X22TXT.getText()), Double.parseDouble(X23TXT.getText()), Double.parseDouble(X24TXT.getText()),
-                            Double.parseDouble(X31TXT.getText()), Double.parseDouble(X32TXT.getText()), Double.parseDouble(X33TXT.getText()), Double.parseDouble(X34TXT.getText()),
-                    X1_0, X2_0, X3_0, tolerance));
+        LinearLabel.setText(tt.Jacobi(Double.parseDouble(X11TXT.getText()), Double.parseDouble(X12TXT.getText()), Double.parseDouble(X13TXT.getText()), Double.parseDouble(X14TXT.getText()),
+                Double.parseDouble(X21TXT.getText()), Double.parseDouble(X22TXT.getText()), Double.parseDouble(X23TXT.getText()), Double.parseDouble(X24TXT.getText()),
+                Double.parseDouble(X31TXT.getText()), Double.parseDouble(X32TXT.getText()), Double.parseDouble(X33TXT.getText()), Double.parseDouble(X34TXT.getText()),
+                X1_0, X2_0, X3_0, tolerance));
     }
 
 
+    @FXML
+    private Label NewtonLabel;
+    @FXML
+    private TextField NewtonTXT;
+
+    public void Newton() {
+        NewtonLabel.setText(Newton.newtonRaphson(Double.parseDouble(NewtonTXT.getText())));
+    }
+
+    static ArrayList<Double> LagrangeXlist;
+    static ArrayList<Double> LagrangeFXlist;
+
+    @FXML
+    private AnchorPane LagrangeListsPane;
+    @FXML
+    private TextField LagrangeSizeTXT;
+    @FXML
+    private Label LagrangeLabel;
+
+    static int size;
+
+    public void LagrangeSize() {
+        if (LagrangeSizeTXT.getText() != null) {
+            size = Integer.parseInt(LagrangeSizeTXT.getText());
+            LagrangeXlist = new ArrayList<>();
+            LagrangeFXlist = new ArrayList<>();
+            LagrangeListsPane.setVisible(true);
+            lagrangeString += "Lagrange Table size = " +size+"\n";
+            LagrangeLabel.setText(lagrangeString);
+
+        } else {
+            LagrangeLabel.setText("Please Enter a Correct Size");
+        }
+    }
+
+    @FXML
+    Button LagrangeXBTN;
+    @FXML
+    Button LagrangeFXBTN;
+    @FXML
+    TextField LagrangeXTXT;
+    @FXML
+    TextField LagrangeFXTXT;
+    @FXML
+    TextField LagrangeXnTXT;
+    @FXML
+    Button LagrangeXnBTN;
+
+    static double Xn;
+
+    static String lagrangeString = "";
+
+    public void applyLagrange(ActionEvent event) {
+        if (event.getSource() == LagrangeXBTN) {
+            if (LagrangeXTXT.getText() != null) {
+//                if (LagrangeXlist.size() >= size) {
+                LagrangeXlist.add(Double.parseDouble(LagrangeXTXT.getText()));
+                lagrangeString += "Lagrange X" + LagrangeXlist.size() + " = " + LagrangeXTXT.getText() +"\n";
+                LagrangeLabel.setText(lagrangeString);
+
+//                } else {
+//                    LagrangeLabel.setText("you have filled the X table,\n Please fill the F(x) table");
+//
+//                }
+            } else {
+                LagrangeLabel.setText("Please Enter a correct value in X");
+            }
+        } else if (event.getSource() == LagrangeFXBTN) {
+            if (LagrangeFXTXT.getText() != null) {
+//                if (LagrangeFXlist.size() >= size) {
+                LagrangeFXlist.add(Double.parseDouble(LagrangeFXTXT.getText()));
+                lagrangeString += "Lagrange F(x)" + LagrangeFXlist.size() + " = " + LagrangeFXTXT.getText()+"\n";
+                LagrangeLabel.setText(lagrangeString);
+//                } else {
+//                    LagrangeLabel.setText("you have filled the table, press Find");
+//                }
+            } else {
+                LagrangeLabel.setText("Please Enter a correct value in F(x)");
+            }
+        } else if (event.getSource() == LagrangeXnBTN) {
+            if (LagrangeXnTXT.getText() != null) {
+                Xn = Double.parseDouble(LagrangeXnTXT.getText());
+                lagrangeString += "The X you want to find Using Lagrange is " + Xn+"\n";
+                LagrangeLabel.setText(lagrangeString);
+
+            } else {
+                LagrangeLabel.setText("Please Enter a correct value for X");
+            }
+        }
+    }
+
+    public void Lagrange() {
+        lagrangeString += Lagrange.Largrange(LagrangeXlist, LagrangeFXlist, Xn);
+        LagrangeLabel.setText(lagrangeString);
+    }
+
+
+
+    @FXML
+    Label TrapLabel;
+    @FXML
+    TextField TrapTXT;
+
+    public void Trap() {
+        if (TrapTXT.getText() != null) {
+            TrapLabel.setText(Trapezoidal.Trapezoidal(0, 3, Double.parseDouble(TrapTXT.getText())));
+        } else {
+            TrapLabel.setText("Please Enter a Correct Value");
+        }
+    }
+
+    @FXML
+    Label SimpLabel;
+    @FXML
+    TextField SimpTXT;
+
+    public void Simp() {
+        if (SimpTXT.getText() != null) {
+            SimpLabel.setText(Simpson.Simpson(0, 3, Double.parseDouble(SimpTXT.getText())));
+        } else {
+            SimpLabel.setText("Please Enter a Correct Value");
+        }
+    }
+
+
+    @FXML
+    Label RomLabel;
+
+    public void Romberg() {
+        RomLabel.setText(Romberg.testRomberg(0, 8, 4));
+    }
 
 
 
@@ -561,7 +610,7 @@ public class CalculatorController implements Initializable {
             DiffPane.setVisible(false);
             IntegPane.setVisible(false);
         }
-        else if (event.getSource() == NewtonDivPane) {
+        else if (event.getSource() == MainNewtonDivBTN) {
             MainOptionsPane.setVisible(false);
             FixedPointPane.setVisible(false);
             BisectionPane.setVisible(false);
@@ -602,6 +651,9 @@ public class CalculatorController implements Initializable {
             NewtonDivPane.setVisible(false);
             DiffPane.setVisible(false);
             IntegPane.setVisible(true);
+            TrapPane.setVisible(false);
+            SimpPane.setVisible(false);
+            RomPane.setVisible(false);
         }
          else {
             MainOptionsPane.setVisible(true);
@@ -616,6 +668,39 @@ public class CalculatorController implements Initializable {
             NewtonDivPane.setVisible(false);
             DiffPane.setVisible(false);
             IntegPane.setVisible(false);
+            TrapPane.setVisible(false);
+            SimpPane.setVisible(false);
+            RomPane.setVisible(false);
+        }
+    }
+
+
+    @FXML
+    AnchorPane TrapPane;
+    @FXML
+    AnchorPane SimpPane;
+    @FXML
+    AnchorPane RomPane;
+    @FXML
+    Button MainTrapBTN;
+    @FXML
+    Button MainSimpBTN;
+    @FXML
+    Button MainRomBTN;
+
+    public void SwitchSubScenes(ActionEvent event) {
+        if (event.getSource() == MainTrapBTN) {
+            TrapPane.setVisible(true);
+            SimpPane.setVisible(false);
+            RomPane.setVisible(false);
+        } else if (event.getSource() == MainSimpBTN) {
+            TrapPane.setVisible(false);
+            SimpPane.setVisible(true);
+            RomPane.setVisible(false);
+        } else if (event.getSource() == MainRomBTN) {
+            TrapPane.setVisible(false);
+            SimpPane.setVisible(false);
+            RomPane.setVisible(true);
         }
     }
 

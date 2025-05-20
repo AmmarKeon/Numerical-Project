@@ -212,9 +212,9 @@
       </AnchorPane>
       <AnchorPane fx:id="NewtonPane" depthTest="ENABLE" layoutX="40.0" layoutY="40.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane prefHeight="659.0" prefWidth="630.0" stylesheets="@stylesheets.css">
+            <ScrollPane layoutX="691.0" layoutY="29.0" prefHeight="746.0" prefWidth="643.0" stylesheets="@stylesheets.css">
                <content>
-                  <Label alignment="TOP_LEFT" prefHeight="2039.0" prefWidth="610.0">
+                  <Label fx:id="NewtonLabel" alignment="TOP_LEFT" prefHeight="2039.0" prefWidth="610.0" textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -226,11 +226,32 @@
                   <String fx:value="viewport" />
                </styleClass>
             </ScrollPane>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="25.0" layoutY="24.0" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Button>
+            <Label layoutX="96.0" layoutY="99.0" prefHeight="75.0" prefWidth="347.0" text="Newton Raphson Method" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="115.0" layoutY="186.0" prefHeight="75.0" prefWidth="347.0" text="f(x) = e^X - X - 1" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="274.0" prefHeight="75.0" prefWidth="75.0" text="X0 = " textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <TextField fx:id="NewtonTXT" layoutX="126.0" layoutY="288.0" prefHeight="48.0" prefWidth="75.0" promptText="x0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </TextField>
+            <Button alignment="CENTER" layoutX="145.0" layoutY="536.0" mnemonicParsing="false" onAction="#Newton" prefHeight="89.0" prefWidth="219.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="SecantPane" depthTest="ENABLE" layoutX="20.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false">
@@ -284,7 +305,7 @@
             <Button alignment="CENTER" layoutX="61.0" layoutY="535.0" mnemonicParsing="false" onAction="#Secant" prefHeight="89.0" prefWidth="219.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="LinearPane" depthTest="ENABLE" layoutX="50.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="LinearPane" depthTest="ENABLE" layoutX="50.0" layoutY="50.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ScrollPane layoutX="638.0" layoutY="48.0" prefHeight="727.0" prefWidth="732.0" stylesheets="@stylesheets.css">
                <content>
@@ -442,11 +463,11 @@
       </AnchorPane>
       <AnchorPane fx:id="LagrangePane" depthTest="ENABLE" layoutX="70.0" layoutY="70.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane prefHeight="659.0" prefWidth="630.0" stylesheets="@stylesheets.css">
+            <ScrollPane layoutX="537.0" layoutY="15.0" prefHeight="774.0" prefWidth="816.0" stylesheets="@stylesheets.css">
                <content>
-                  <Label alignment="TOP_LEFT" prefHeight="2039.0" prefWidth="610.0">
+                  <Label fx:id="LagrangeLabel" alignment="TOP_LEFT" prefHeight="2058.0" prefWidth="790.0" textFill="WHITE" wrapText="true">
                      <font>
-                        <Font size="20.0" />
+                        <Font size="18.0" />
                      </font>
                   </Label>
                </content>
@@ -456,11 +477,107 @@
                   <String fx:value="viewport" />
                </styleClass>
             </ScrollPane>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Button>
+            <Button alignment="CENTER" layoutX="156.0" layoutY="646.0" mnemonicParsing="false" onAction="#Lagrange" prefHeight="89.0" prefWidth="219.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Find" textAlignment="CENTER" wrapText="true" />
+            <AnchorPane fx:id="LagrangeListsPane" layoutX="32.0" layoutY="332.0" prefHeight="189.0" prefWidth="503.0" visible="false">
+               <children>
+                  <VBox layoutX="22.0">
+                     <children>
+                        <HBox prefHeight="63.0" prefWidth="442.0">
+                           <children>
+                              <Label prefHeight="66.0" prefWidth="88.0" text="X" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="LagrangeXTXT" prefHeight="66.0" prefWidth="139.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="LagrangeXBTN" alignment="CENTER" mnemonicParsing="false" onAction="#applyLagrange" prefHeight="66.0" prefWidth="235.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </HBox>
+                        <HBox prefHeight="63.0" prefWidth="442.0">
+                           <children>
+                              <Label prefHeight="66.0" prefWidth="92.0" text="F(x)" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="LagrangeFXTXT" prefHeight="107.0" prefWidth="155.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="LagrangeFXBTN" alignment="CENTER" mnemonicParsing="false" onAction="#applyLagrange" prefHeight="66.0" prefWidth="235.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="25.0" />
+                           </padding>
+                        </HBox>
+                        <Label prefHeight="0.0" prefWidth="418.0" text="Enter the Value of X you want to find" textFill="#9e9797" wrapText="true">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="63.0" prefWidth="442.0">
+                           <children>
+                              <Label prefHeight="66.0" prefWidth="88.0" text="Xn" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="LagrangeXnTXT" prefHeight="107.0" prefWidth="155.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                              <Button fx:id="LagrangeXnBTN" alignment="CENTER" mnemonicParsing="false" onAction="#applyLagrange" prefHeight="66.0" prefWidth="235.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true">
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+            <Label layoutX="75.0" layoutY="113.0" prefHeight="103.0" prefWidth="377.0" text="Lagrange Interpolation" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="49.0" layoutY="214.0" prefHeight="103.0" prefWidth="206.0" text="Size of Tabel = " textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <TextField fx:id="LagrangeSizeTXT" layoutX="256.0" layoutY="241.0" prefHeight="48.0" prefWidth="126.0" promptText="Size">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </TextField>
+            <Button alignment="CENTER" layoutX="395.0" layoutY="236.0" mnemonicParsing="false" onAction="#LagrangeSize" prefHeight="66.0" prefWidth="113.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="NewtonDivPane" depthTest="ENABLE" layoutX="80.0" layoutY="80.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -509,27 +626,187 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="IntegPane" depthTest="ENABLE" layoutX="100.0" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="IntegPane" depthTest="ENABLE" layoutX="100.0" layoutY="100.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="800.0" prefWidth="1380.0" styleClass="optionsPane" stylesheets="@stylesheets.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane prefHeight="659.0" prefWidth="630.0" stylesheets="@stylesheets.css">
-               <content>
-                  <Label fx:id="FixedPointLabel45" alignment="TOP_LEFT" prefHeight="2039.0" prefWidth="610.0">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-               </content>
-               <styleClass>
-                  <String fx:value="scroll-bar" />
-                  <String fx:value="transparent-scroll-pane" />
-                  <String fx:value="viewport" />
-               </styleClass>
-            </ScrollPane>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
+            <Button alignment="CENTER" layoutX="24.0" layoutY="23.0" mnemonicParsing="false" onAction="#SwitchScenes" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 25; -fx-border-width: 2;" text="&lt;" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Button>
+            <HBox alignment="CENTER" layoutX="146.0" layoutY="221.0" spacing="50.0">
+               <children>
+                  <Button fx:id="MainTrapBTN" alignment="CENTER" mnemonicParsing="false" onAction="#SwitchSubScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Composite Trapezoidal Integration" textAlignment="CENTER" wrapText="true" />
+                  <Button fx:id="MainSimpBTN" alignment="CENTER" mnemonicParsing="false" onAction="#SwitchSubScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Composite Simpson Integration" textAlignment="CENTER" wrapText="true" />
+                  <Button fx:id="MainRomBTN" alignment="CENTER" mnemonicParsing="false" onAction="#SwitchSubScenes" prefHeight="150.0" prefWidth="300.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Modified Romberg Integration" textAlignment="CENTER" wrapText="true" />
+               </children>
+            </HBox>
+            <AnchorPane fx:id="TrapPane" layoutY="98.4" prefHeight="722.0" prefWidth="1400.0" styleClass="fullPane" stylesheets="@stylesheets.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="98.0">
+               <children>
+                  <ScrollPane layoutX="358.0" layoutY="-13.0" prefHeight="714.0" prefWidth="1075.0" stylesheets="@stylesheets.css">
+                     <content>
+                        <Label fx:id="TrapLabel" alignment="TOP_LEFT" prefHeight="2043.0" prefWidth="1048.0" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </content>
+                     <styleClass>
+                        <String fx:value="scroll-bar" />
+                        <String fx:value="transparent-scroll-pane" />
+                        <String fx:value="viewport" />
+                     </styleClass>
+                  </ScrollPane>
+                  <Label layoutX="33.0" layoutY="176.0" prefHeight="84.0" prefWidth="358.0" text="₀|³ 1 / 9 + X² dx" textFill="WHITE">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="57.0" layoutY="309.0">
+                     <children>
+                        <Label prefHeight="0.0" prefWidth="418.0" text="Enter the Value of N" textFill="#9e9797" wrapText="true">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="63.0" prefWidth="442.0">
+                           <children>
+                              <Label prefHeight="66.0" prefWidth="88.0" text="N =" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="TrapTXT" prefHeight="107.0" prefWidth="155.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <Label layoutX="45.0" layoutY="222.0" prefHeight="84.0" prefWidth="358.0" text="Interval = [0, 3]" textFill="WHITE">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" layoutX="72.0" layoutY="483.0" mnemonicParsing="false" onAction="#Trap" prefHeight="66.0" prefWidth="235.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="19.0" layoutY="75.0" prefHeight="56.0" prefWidth="358.0" text="Trapezoidal Integration" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="SimpPane" layoutX="10.0" layoutY="108.0" prefHeight="722.0" prefWidth="1400.0" styleClass="fullPane" stylesheets="@stylesheets.css" visible="false">
+               <children>
+                  <ScrollPane layoutX="358.0" layoutY="-13.0" prefHeight="714.0" prefWidth="1075.0" stylesheets="@stylesheets.css">
+                     <content>
+                        <Label fx:id="SimpLabel" alignment="TOP_LEFT" prefHeight="2043.0" prefWidth="1048.0" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                     </content>
+                     <styleClass>
+                        <String fx:value="scroll-bar" />
+                        <String fx:value="transparent-scroll-pane" />
+                        <String fx:value="viewport" />
+                     </styleClass>
+                  </ScrollPane>
+                  <Label layoutX="33.0" layoutY="176.0" prefHeight="84.0" prefWidth="358.0" text="₀|³ 1 / 9 + X² dx" textFill="WHITE">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="57.0" layoutY="309.0">
+                     <children>
+                        <Label prefHeight="0.0" prefWidth="418.0" text="Enter the Value of N" textFill="#9e9797" wrapText="true">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="63.0" prefWidth="442.0">
+                           <children>
+                              <Label prefHeight="66.0" prefWidth="88.0" text="N =" textFill="WHITE">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="SimpTXT" prefHeight="107.0" prefWidth="155.0">
+                                 <font>
+                                    <Font size="30.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <Label layoutX="45.0" layoutY="222.0" prefHeight="84.0" prefWidth="358.0" text="Interval = [0, 3]" textFill="WHITE">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" layoutX="72.0" layoutY="483.0" mnemonicParsing="false" onAction="#Simp" prefHeight="66.0" prefWidth="235.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="19.0" layoutY="75.0" prefHeight="56.0" prefWidth="358.0" text="Simpson Integration" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="RomPane" layoutX="20.0" layoutY="118.0" prefHeight="722.0" prefWidth="1400.0" styleClass="fullPane" stylesheets="@stylesheets.css">
+               <children>
+                  <ScrollPane layoutX="358.0" layoutY="-13.0" prefHeight="714.0" prefWidth="1075.0" stylesheets="@stylesheets.css">
+                     <content>
+                        <Label fx:id="RomLabel" alignment="TOP_LEFT" prefHeight="2043.0" prefWidth="1048.0" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </content>
+                     <styleClass>
+                        <String fx:value="scroll-bar" />
+                        <String fx:value="transparent-scroll-pane" />
+                        <String fx:value="viewport" />
+                     </styleClass>
+                  </ScrollPane>
+                  <Label layoutX="85.0" layoutY="142.0" prefHeight="84.0" prefWidth="161.0" text="₀|⁸ X² dx" textFill="WHITE">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="52.0" layoutY="260.0">
+                     <children>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="63.0" prefWidth="102.0" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+                  <Label layoutX="74.0" layoutY="205.0" prefHeight="84.0" prefWidth="358.0" text="Interval = [0, 8]" textFill="WHITE">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <Button alignment="CENTER" layoutX="72.0" layoutY="483.0" mnemonicParsing="false" onAction="#Romberg" prefHeight="66.0" prefWidth="235.0" style="-fx-font-size: 24;" styleClass="optionButtons" stylesheets="@stylesheets.css" text="Apply" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="19.0" layoutY="75.0" prefHeight="56.0" prefWidth="358.0" text="Romberg Integration" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="151.0" layoutY="396.0" prefHeight="66.0" prefWidth="88.0" text="N = 4" textFill="WHITE">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
