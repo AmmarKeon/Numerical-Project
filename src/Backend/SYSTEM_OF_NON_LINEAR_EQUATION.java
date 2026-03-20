@@ -1,22 +1,9 @@
+package Backend;
+
 import java.util.Arrays;
 
 public class SYSTEM_OF_NON_LINEAR_EQUATION {
-    public static void main(String[] args) {
-        System.out.println("System Of Non Linear Equation:");
-        System.out.println("            3X - cos(YZ) -0.5 = 0");
-        System.out.println("            4X^2 - 625 Y^2 + 2Y -1 = 0");
-        System.out.println("            e^(-XY) + 20Z + (10π+3)/3 = 0");
 
-
-        System.out.println(SystemofnonLinear());
-
-
-
-
-
-
-
-    }
     public static String print2DArray(double[][] array) {
         // Determine the maximum width needed for each column
         String loop ="";

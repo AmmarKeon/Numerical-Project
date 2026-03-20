@@ -18,11 +18,12 @@ public class Newton {
         double xn = x0;
         double x = xn - f(xn) / fdash(xn);
         int i = 1;
+        loop += "x1 = "+ x +"\n";
         double tolerance = 1e-14;
         do {
             xn = x;
             x = xn - f(xn) / fdash(xn);
-            loop += "x" + i + " = " + x +"\n";
+            loop += "x" + (i+1) + " = " + x +"\n";
             i++;
         } while (Math.abs(x - xn) > tolerance );
         return loop;

@@ -88,8 +88,9 @@ public class Romberg {
         array[0][0] = (fx.get(0) + fx.get(1) + (2.0 *(inbetween)));
         String tempString = fx.get(0) +" + "+fx.get(1)+" (2 * "+inbetweenString+")";
         answer = step/2 * array[0][0];
-        mainLoop += step+ "/2 * "+tempString+"\n\n";
+        mainLoop += step+ "/2 * "+tempString;
         array[1][0] = answer;
+        mainLoop += " = "+answer+"\n\n";
 
 
 
@@ -191,6 +192,7 @@ public class Romberg {
         answerNum = step/2 * answer[0][0];
         mainLoop += step+ "/2 * "+tempString;
         answer[1][0] = answerNum;
+        mainLoop += " = "+answerNum;
 
 
 

@@ -11,7 +11,7 @@ public class Bisection {
         double fb = Math.pow(b, 4) + b + 9;
         loop += "Solving X⁴ + X + 9 = 0 using Bisection Method\n";
         loop += "Iteration\t a\t b\t c\t f(c)\n";
-        loop += "----------------------------------------------------------------------------------------\n";
+        loop += "-------------------------------------------------------------------------\n";
         double epsilon = 1e-14;
         while (i < max) {
             c = (a+b)/2;

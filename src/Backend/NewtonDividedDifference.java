@@ -98,4 +98,7 @@ public class NewtonDividedDifference{
             System.out.println("Example format: 2x³ - 5x² + 3x - 4");
         }
     }
+
+
+//    public static String
 }

@@ -319,11 +319,15 @@ public class CalculatorController implements Initializable {
     @FXML
     private TextField X13TXT;
     @FXML
+    private TextField X14TXT;
+    @FXML
     private TextField X21TXT;
     @FXML
     private TextField X22TXT;
     @FXML
     private TextField X23TXT;
+    @FXML
+    private TextField X24TXT;
     @FXML
     private TextField X31TXT;
     @FXML
@@ -331,20 +335,42 @@ public class CalculatorController implements Initializable {
     @FXML
     private TextField X33TXT;
     @FXML
-    private TextField X14TXT;
-    @FXML
-    private TextField X24TXT;
-    @FXML
     private TextField X34TXT;
+    @FXML
+    Button JacobiBTN;
+    @FXML
+    Button GaussSeidelBTN;
 
 
-    public void Jacobi() {
+    public void Jacobi(ActionEvent event) {
         double X1_0 = 0, X2_0 = 0, X3_0 = 0; // Initial guess
         double tolerance = 1e-14;
-        LinearLabel.setText(tt.Jacobi(Double.parseDouble(X11TXT.getText()), Double.parseDouble(X12TXT.getText()), Double.parseDouble(X13TXT.getText()), Double.parseDouble(X14TXT.getText()),
-                Double.parseDouble(X21TXT.getText()), Double.parseDouble(X22TXT.getText()), Double.parseDouble(X23TXT.getText()), Double.parseDouble(X24TXT.getText()),
-                Double.parseDouble(X31TXT.getText()), Double.parseDouble(X32TXT.getText()), Double.parseDouble(X33TXT.getText()), Double.parseDouble(X34TXT.getText()),
-                X1_0, X2_0, X3_0, tolerance));
+        double a1 = Double.parseDouble(X11TXT.getText());
+        double a2 = Double.parseDouble(X12TXT.getText());
+        double a3 = Double.parseDouble(X13TXT.getText());
+        double a4 = Double.parseDouble(X14TXT.getText());
+        double b1 = Double.parseDouble(X21TXT.getText());
+        double b2 = Double.parseDouble(X22TXT.getText());
+        double b3 = Double.parseDouble(X23TXT.getText());
+        double b4 = Double.parseDouble(X24TXT.getText());
+        double c1 = Double.parseDouble(X31TXT.getText());
+        double c2 = Double.parseDouble(X32TXT.getText());
+        double c3 = Double.parseDouble(X33TXT.getText());
+        double c4 = Double.parseDouble(X34TXT.getText());
+
+        double [][] array = {
+                {a1, a2, a3,a4},
+                {b1, b2, b3,b4},
+                {c1, c2, c3,c4}
+        };
+        if (event.getSource() == JacobiBTN) {
+            choice = 1;
+            LinearLabel.setText(tt.Linear(array, X1_0, X2_0, X3_0, (int)choice));
+        } else if (event.getSource() == GaussSeidelBTN) {
+            choice = 2;
+            LinearLabel.setText(tt.Linear(array, X1_0, X2_0, X3_0, (int)choice));
+
+        }
     }
 
 
@@ -478,6 +504,99 @@ public class CalculatorController implements Initializable {
 
     public void Romberg() {
         RomLabel.setText(Romberg.testRomberg(0, 8, 4));
+    }
+
+
+    static ArrayList<Double> DiffXList = new ArrayList<>();
+    static ArrayList<Double> DiffFXList = new ArrayList<>();
+
+    @FXML
+    TextField DiffXTXT;
+    @FXML
+    Button DiffXBTN;
+    @FXML
+    Button DiffFXBTN;
+    @FXML
+    TextField DiffFXTXT;
+    @FXML
+    Button DiffChoiceBTN;
+    @FXML
+    TextField DiffChoiceTXT;
+    @FXML
+    Button DiffXNBTN;
+    @FXML
+    TextField DiffXNTXT;
+    @FXML
+    Label DiffLabel;
+
+    static String diffString = "";
+    static double choice;
+
+    public void applyDiff(ActionEvent event) {
+        if (event.getSource() == DiffXBTN) {
+            DiffXList.add(Double.parseDouble(DiffXTXT.getText()));
+            diffString += "X" + DiffXList.size() + " = " + DiffXTXT.getText() + "\n";
+            DiffLabel.setText(diffString);
+        } else if (event.getSource() == DiffFXBTN) {
+            if (DiffFXList.size() < DiffXList.size()) {
+                DiffFXList.add(Double.parseDouble(DiffFXTXT.getText()));
+                diffString += "F(x)" + DiffFXList.size() + " = " + DiffFXTXT.getText() + "\n";
+                DiffLabel.setText(diffString);
+            } else {
+                diffString += "F(x) number of elements do not match X number of elements\n";
+                DiffLabel.setText(diffString);
+            }
+        } else if (event.getSource() == DiffXNBTN) {
+            Xn = Double.parseDouble(DiffXNTXT.getText());
+            diffString += "X you want to find = " + Xn + "\n";
+            DiffLabel.setText(diffString);
+        } else if (event.getSource() == DiffChoiceBTN) {
+            if (Double.parseDouble(DiffChoiceTXT.getText()) == 1) {
+                choice = 1;
+                diffString += "you chose Two Point Differentiation\n";
+                DiffLabel.setText(diffString);
+            } else if (Double.parseDouble(DiffChoiceTXT.getText()) == 2) {
+                choice = 2;
+                diffString += "you chose Three Point Differentiation\n";
+                DiffLabel.setText(diffString);
+            }
+        }
+    }
+
+    public void Diff() {
+        diffString += "X          |  F(x)\n";
+        diffString += "---------------------------\n";
+        for (int i = 0; i < DiffXList.size(); i++) {
+            diffString +=  DiffXList.get(i) + "        |  " + DiffFXList.get(i) + "\n";
+        }
+        diffString += "\n\n"+differential.diff(DiffXList, DiffFXList, Xn, (int)choice);
+        DiffLabel.setText(diffString);
+    }
+
+
+
+
+    @FXML
+    Label NonLinearLabel;
+
+    public void NonLinear() {
+        NonLinearLabel.setText(SYSTEM_OF_NON_LINEAR_EQUATION.SystemofnonLinear());
+    }
+
+
+    @FXML
+    Label GaussLabel;
+    @FXML
+    TextField GaussX0TXT;
+    @FXML
+    TextField GaussX1TXT;
+    @FXML
+    TextField GaussChoiceTXT;
+
+
+
+    public void Gauss() {
+        GaussLabel.setText(GaussQuadrature.GaussQuadrature(Double.parseDouble(GaussX0TXT.getText()), Double.parseDouble(GaussX1TXT.getText()), Double.parseDouble(GaussChoiceTXT.getText())));
     }
 
 
@@ -654,6 +773,7 @@ public class CalculatorController implements Initializable {
             TrapPane.setVisible(false);
             SimpPane.setVisible(false);
             RomPane.setVisible(false);
+            GaussPane.setVisible(false);
         }
          else {
             MainOptionsPane.setVisible(true);
@@ -671,6 +791,7 @@ public class CalculatorController implements Initializable {
             TrapPane.setVisible(false);
             SimpPane.setVisible(false);
             RomPane.setVisible(false);
+            GaussPane.setVisible(false);
         }
     }
 
@@ -681,6 +802,10 @@ public class CalculatorController implements Initializable {
     AnchorPane SimpPane;
     @FXML
     AnchorPane RomPane;
+    @FXML
+    AnchorPane GaussPane;
+    @FXML
+    Button MainGaussBTN;
     @FXML
     Button MainTrapBTN;
     @FXML
@@ -693,14 +818,24 @@ public class CalculatorController implements Initializable {
             TrapPane.setVisible(true);
             SimpPane.setVisible(false);
             RomPane.setVisible(false);
+            GaussPane.setVisible(false);
         } else if (event.getSource() == MainSimpBTN) {
             TrapPane.setVisible(false);
             SimpPane.setVisible(true);
             RomPane.setVisible(false);
+            GaussPane.setVisible(false);
+
         } else if (event.getSource() == MainRomBTN) {
             TrapPane.setVisible(false);
             SimpPane.setVisible(false);
             RomPane.setVisible(true);
+            GaussPane.setVisible(false);
+        } else if (event.getSource() == MainGaussBTN) {
+            TrapPane.setVisible(false);
+            SimpPane.setVisible(false);
+            RomPane.setVisible(false);
+            GaussPane.setVisible(true);
+
         }
     }
 
