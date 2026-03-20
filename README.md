@@ -4,7 +4,7 @@
 <!-- PROJECT SHIELDS -->
 <div align="center">
 
-[![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/ammarkeon/]
+[![Contributors][contributors-shield]][contributors-url] [![Forks][forks-shield]][forks-url] [![Stargazers][stars-shield]][stars-url] [![Issues][issues-shield]][issues-url] [![LinkedIn][linkedin-shield]][linkedin-url]
 
 </div>
 
@@ -153,7 +153,7 @@ Project Link: [https://github.com/AmmarKeon/Numerical-Project](https://github.co
 [issues-shield]: https://img.shields.io/github/issues/AmmarKeon/Numerical-Project.svg?style=for-the-badge
 [issues-url]: https://github.com/AmmarKeon/Numerical-Project/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/
+[linkedin-url]: https://www.linkedin.com/in/ammarkeon/
 [Java.com]: https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white
 [Java-url]: https://www.java.com/
 [JavaFX.com]: https://img.shields.io/badge/JavaFX-FF0000?style=for-the-badge&logo=java&logoColor=white
